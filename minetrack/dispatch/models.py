@@ -5,7 +5,7 @@ from django.conf import settings
 class DispatchRecord(models.Model): #calculates the sales revenue
     dispatcher = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
-    tons_dispatched = models.DecimalField(max_digits=10, decimal_places=3)
+    tons_dispatched = models.DecimalField(max_digits=10, decimal_places=2)
     cost_of_tons_dispatched = models.DecimalField(max_digits=10, decimal_places=2)
 
     @property

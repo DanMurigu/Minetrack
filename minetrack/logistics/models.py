@@ -8,7 +8,10 @@ class TransportCost(models.Model): #calculates cost of product distribution
     logistics = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField(auto_now=True)
     driver = models.TextField(max_length=200)
-    vehicle_no = models.CharField(max_length=100, validators=[RegexValidator(regex='^[A-Za-z0-9]+$')])
+    vehicle_no = models.CharField(
+        max_length=20, 
+        validators=[RegexValidator(regex='^K[A-Z]{2}-[0-9]{3}[A-Z]$')]
+        )
     fuel_cost = models.DecimalField(max_digits=10, decimal_places=2)
     other_expenses = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
