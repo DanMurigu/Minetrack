@@ -31,5 +31,7 @@ router.register(r'logistics/trips', TransportCostViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),   
+    path('api/reports/', include('reports.urls')),
+    path('reports/', include('reports.urls')),
 ]
 

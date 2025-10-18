@@ -1,0 +1,46 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block title %}Report Summary{% endblock %}
+
+{% block content %}
+<div class="container" style="margin: 20px;">
+    <h1 style="margin-bottom: 10px;">📊 Report Summary</h1>
+    <p><strong>Period:</strong> {{ report.start_date }} → {{ report.end_date }}</p>
+    <p><strong>Generated On:</strong> {{ report.created_at|date:"Y-m-d H:i" }}</p>
+    <hr>
+
+    <h3>Production</h3>
+    <ul>
+        <li><strong>Total Production Cost:</strong> {{ report.total_production_cost }}</li>
+    </ul>
+
+    <h3>Dispatch</h3>
+    <ul>
+        <li><strong>Total Dispatch Cost:</strong> {{ report.total_dispatch_cost }}</li>
+        <li><strong>Total Sales:</strong> {{ report.total_sales }}</li>
+    </ul>
+
+    <h3>Logistics</h3>
+    <ul>
+        <li><strong>Total Logistics Cost:</strong> {{ report.total_logistics_cost }}</li>
+    </ul>
+
+    <hr>
+    <h3>Financial Summary</h3>
+    <ul>
+        <li><strong>Total Expenses:</strong> {{ report.total_expenses }}</li>
+        <li><strong>Profit / Loss:</strong>
+            {% if report.profit_loss >= 0 %}
+                <span style="color: green; font-weight: bold;">+{{ report.profit_loss }}</span>
+            {% else %}
+                <span style="color: red; font-weight: bold;">{{ report.profit_loss }}</span>
+            {% endif %}
+        </li>
+    </ul>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'admin:reports_report_changelist' %}" class="button btn btn-primary">⬅ Back to Reports</a>
+    </div>
+</div>
+{% endblock %}
