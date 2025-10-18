@@ -1,6 +1,7 @@
 # Minetrack
 A Django based mining operations expense and profit management system.
 Project Progress
+
 Week 1 — Project Setup & Requirements
 
 Initialized a Django project and configured version control (Git).
